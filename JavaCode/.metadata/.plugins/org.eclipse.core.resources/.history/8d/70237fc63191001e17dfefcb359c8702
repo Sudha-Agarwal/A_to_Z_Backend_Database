@@ -1,0 +1,13 @@
+package com.learning;
+
+public class Employee extends Person{
+	int empId;
+	String department;
+	
+	void print() {
+		System.out.println("EmpId " + empId);
+		System.out.println("Department " + department);
+	}
+	
+
+}

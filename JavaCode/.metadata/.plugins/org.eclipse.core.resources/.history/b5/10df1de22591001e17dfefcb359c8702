@@ -1,0 +1,16 @@
+package com.learning;
+
+public class Operators {
+	public static void main(String[] args) {
+		int x = 10;
+		int y = 20;
+		
+		System.out.println(!(x == 10 || x > y ));
+		
+		String result = (x % 2 ==0) ? "Even": "odd";
+		System.out.println(result);
+		
+	}
+
+
+}

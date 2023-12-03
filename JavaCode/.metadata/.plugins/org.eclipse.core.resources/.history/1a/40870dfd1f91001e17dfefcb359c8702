@@ -1,0 +1,18 @@
+package com.learning;
+
+public class Person {
+	//attributes/state
+	String name;
+	int age;
+	
+	//behavior method
+	void speak() {
+		System.out.println("person is speaking");		
+		
+	}
+	void eating() {
+		System.out.println("person is eating");
+	}
+}
+
+//we create an object of class person using a keyword called 'new';

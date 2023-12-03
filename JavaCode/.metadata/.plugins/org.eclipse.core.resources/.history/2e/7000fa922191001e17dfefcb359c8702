@@ -1,0 +1,30 @@
+package com.learning;
+
+public class Person {
+	//attributes/state
+	String name; //2 bytes
+	int age; //4 bytes
+	
+	//behavior method
+	void speak() {
+		System.out.println("person is speaking");		
+		
+	}
+	void eating() {
+		System.out.println("person is eating");
+	}
+	
+	public static void main(String args[]) {
+		//we create an object of class person using a keyword called 'new';
+		Person obj1 = new Person();
+		obj1.age = 30;
+		obj1.name = "Sudha";
+		
+		Person obj2 = new Person();
+		obj2.age = 40;
+		obj2.name = "ABC";
+		
+	}
+}
+
+

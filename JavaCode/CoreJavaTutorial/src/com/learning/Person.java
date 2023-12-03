@@ -1,0 +1,66 @@
+package com.learning;
+
+public class Person {
+	//attributes/state/properties/instance variable
+	String name; //2 bytes
+	private int age; //4 bytes	
+	char gender;	
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public char getGender() {
+		return gender;
+	}
+
+	public void setGender(char gender) {
+		this.gender = gender;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getAge(){
+		return this.age;
+	}
+	
+	//behavior method/instance method
+	void speak() {
+		System.out.println("Person is speaking with name"  + name);		
+		
+	}
+	void eating() {
+		System.out.println("person is eating");
+	}	
+	
+	//parameterized constructor
+	Person(String name, int age){
+		System.out.println("parent class person's constructor");
+		if(age < 0) {
+			System.out.println("age cannot be less than 0");			
+		}
+		else {
+			this.name = name;
+			this.age = age;	
+		}
+			
+	}
+	
+	Person(){
+		
+	}
+	
+	void show() {
+		System.out.println("show method of parent class");
+		
+	}
+	
+}
+
+

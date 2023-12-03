@@ -1,0 +1,29 @@
+package com.learning;
+
+public class Operators {
+	public static void main(String[] args) {
+		int x = 11;
+		int y = 20;
+		
+		System.out.println(!(x == 10 || x > y ));
+		
+		String result = (x % 2 == 0) ? "Even": "odd";
+		System.out.println(result);
+		
+		//type casting - assigning a value of one primitive type to another type
+		
+		/*we have two types of casting:
+			1. widening casting/upcasting (automatically)
+			this is done when we are assigning a smaller type to larger type
+			int i = 10;
+			double d = i;
+			
+			2. narrowing casting/downcasting(manually)
+		*/
+		
+		int i = 10;
+		float d = i;
+	}
+
+
+}

@@ -1,0 +1,26 @@
+package com.learning;
+
+public class Person {
+	//attributes/state
+	String name; //2 bytes
+	int age; //4 bytes
+	float salary;
+	char gender;
+	boolean isAdmin;
+	
+	//behavior method
+	void speak() {
+		System.out.println("Person is speaking with name"  + name);		
+		
+	}
+	void eating() {
+		System.out.println("person is eating");
+	}	
+	
+	Person(String name, int age){
+		System.out.println("parent class person's constructor");
+	}
+	
+}
+
+

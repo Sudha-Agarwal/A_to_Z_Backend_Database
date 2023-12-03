@@ -1,0 +1,20 @@
+package com.learning;
+
+public class Employee extends Person{
+	int empId;
+	String department;
+	
+	void print() {
+		System.out.println("EmpId " + empId);
+		System.out.println("Department " + department);
+	}
+	
+	
+	//no args constructor / default constructor
+	Employee(String name, int age, int empId, String department){
+		super(name,age);
+		this.empId = empId;
+		this.department = department;		
+		
+	}
+}
