@@ -9,7 +9,7 @@ class FinalClass{
 	
 	final void finalMethod() {
 		System.out.println("Final method");
-		finalVar = 40;
+		//finalVar = 40;
 	}
 	
 }
