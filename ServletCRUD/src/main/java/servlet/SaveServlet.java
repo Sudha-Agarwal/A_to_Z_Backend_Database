@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import dao.EmployeeDAO;
 import jakarta.servlet.ServletException;
@@ -55,6 +56,19 @@ public class SaveServlet extends HttpServlet {
 		emp.setContact(contact);
 		
 		boolean success = EmployeeDAO.registerEmployee(emp);
+		
+		PrintWriter out = response.getWriter();
+		
+		if(success) {
+			out.println("<h1>Employee created</h1>");
+			request.getRequestDispatcher("index.html").include(request, response);
+			
+		}
+		else {
+			out.println("<h1>Error</h1>");
+			request.getRequestDispatcher("index.html").include(request, response);
+			
+		}
 		
 		
 	}

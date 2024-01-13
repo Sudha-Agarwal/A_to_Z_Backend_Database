@@ -2,9 +2,12 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-import com.mysql.cj.xdevapi.Statement;
+import java.sql.CallableStatement;
 
 import model.EmployeeBean;
 import util.ConnectionManager;
@@ -57,6 +60,36 @@ public class EmployeeDAO {
 			ConnectionManager.closeConnection(connection);
 		}
 		return success;
+	}
+	
+	public static List<EmployeeBean> getAllEmployees() {
+		List<EmployeeBean> list = new ArrayList<EmployeeBean>();
+		Connection connection = null;
+		
+		try {
+			connection = ConnectionManager.getConnection();
+			
+			CallableStatement stmt =  connection.prepareCall("{call getAllEmployees}");
+			ResultSet rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+				EmployeeBean emp = new EmployeeBean();
+				emp.setId(rs.getInt(1));
+				emp.setFirstName(rs.getString(2));
+				emp.setLastName(rs.getString(3));
+				
+				list.add(emp);
+			}
+		}
+			catch (Exception e) {
+				// TODO: handle exception
+			}
+			finally {
+				ConnectionManager.closeConnection(connection);
+			}
+			return list;		
+		
+		
 	}
 
 }
