@@ -1,0 +1,164 @@
+//students data
+db.students.insertMany([
+  {
+    name: "Alice Smith",
+    age: 22,
+    marks: [75, 88, 82, 90, 87],
+    grade: "B"
+  },
+  {
+    name: "Bob Johnson",
+    age: 21,
+    marks: [92, 95, 88, 78, 85],
+    grade: "A"
+  },
+  {
+    name: "Alice Smith1",
+    age: 25,
+    marks: [75, 88, 82, 90, 87],
+    grade: "A"
+  },
+  {
+    name: "Alice Smith1",
+    age: 19,
+    marks: [75, 88, 82, 90, 87],
+    grade: "A+"
+  }  
+]);
+
+
+//countries with population
+db.cities.insertMany([
+        {"name": "Seoul", "country": "South Korea", "continent": "Asia", "population": 25.674 },
+        {"name": "Mumbai", "country": "India", "continent": "Asia", "population": 19.980 },
+        {"name": "Lagos", "country": "Nigeria", "continent": "Africa", "population": 13.463 },
+        {"name": "Beijing", "country": "China", "continent": "Asia", "population": 19.618 },
+        {"name": "Shanghai", "country": "China", "continent": "Asia", "population": 25.582 },
+        {"name": "Osaka", "country": "Japan", "continent": "Asia", "population": 19.281 },
+        {"name": "Cairo", "country": "Egypt", "continent": "Africa", "population": 20.076 },
+        {"name": "Tokyo", "country": "Japan", "continent": "Asia", "population": 37.400 },
+        {"name": "Karachi", "country": "Pakistan", "continent": "Asia", "population": 15.400 },
+        {"name": "Dhaka", "country": "Bangladesh", "continent": "Asia", "population": 19.578 },
+        {"name": "Rio de Janeiro", "country": "Brazil", "continent": "South America", "population": 13.293 },
+        {"name": "São Paulo", "country": "Brazil", "continent": "South America", "population": 21.650 },
+        {"name": "Mexico City", "country": "Mexico", "continent": "North America", "population": 21.581 },
+        {"name": "Delhi", "country": "India", "continent": "Asia", "population": 28.514 },
+        {"name": "Buenos Aires", "country": "Argentina", "continent": "South America", "population": 14.967 },
+        {"name": "Kolkata", "country": "India", "continent": "Asia", "population": 14.681 },
+        {"name": "New York", "country": "United States", "continent": "North America", "population": 18.819 },
+        {"name": "Manila", "country": "Philippines", "continent": "Asia", "population": 13.482 },
+        {"name": "Chongqing", "country": "China", "continent": "Asia", "population": 14.838 },
+        {"name": "Istanbul", "country": "Turkey", "continent": "Europe", "population": 14.751 }
+    ])
+	
+	
+db.orders.insertMany([
+  {
+    "_id": 1,
+    "userId": 1,
+    "product": "Product A",
+    "price": 10,
+    "quantity": 2
+  },
+  {
+    "_id": 2,
+    "userId": 2,
+    "product": "Product B",
+    "price": 15,
+    "quantity": 4
+  },
+  {
+    "_id": 3,
+    "userId": 1,
+    "product": "Product C",
+    "price": 20,
+    "quantity": 1
+  }
+]);
+
+
+db.users.insertMany([
+  {
+    "_id": 1,
+    "name": "John",
+    "email": "john@example.com"
+  },
+  {
+    "_id": 2,
+    "name": "Jane",
+    "email": "jane@example.com"
+  }
+]);
+
+//courses
+db.courses.insertMany([
+  {
+    name: 'MongoDB for Beginners',
+    coursedetails: {
+      description: 'An introduction to MongoDB for beginners',
+      duration: 10
+    },
+    instructor: {
+      name: 'John Doe',
+      email: 'johndoe@example.com'
+    }
+  },
+  {
+    name: 'MongoDB for Developers',
+    coursedetails: {
+      description: 'A course on MongoDB for developers',
+      duration: 20
+    },
+    instructor: {
+      name: 'Jane Smith',
+      email: 'janesmith@example.com'
+    }
+  },
+  {
+    name: 'MongoDB for Administrators',
+    coursedetails: {
+      description: 'A course on MongoDB for administrators',
+      duration: 15
+    },
+    instructor: {
+      name: 'Bob Johnson',
+      email: 'bobjohnson@example.com'
+    }
+  }
+]);
+
+ db.courses.insertMany([
+        {
+          name: 'MongoDB for Beginners',
+          coursedetails: {
+            duration: 30,
+            topics: ['MongoDB basics', 'Data modeling', 'Indexes']
+          },
+          instructor: {
+            name: 'John Doe',
+            email: 'john.doe@example.com'
+          }
+        },
+        {
+          name: 'Advanced MongoDB',
+          coursedetails: {
+            duration: 60,
+            topics: ['Aggregation framework', 'Replication', 'Sharding']
+          },
+          instructor: {
+            name: 'Jane Smith',
+            email: 'jane.smith@example.com'
+          }
+        },
+        {
+          name: 'MongoDB for Node.js Developers',
+          coursedetails: {
+            duration: 45,
+            topics: ['Node.js', 'MongoDB driver', 'Mongoose']
+          },
+          instructor: {
+            name: 'Bob Johnson',
+            email: 'bob.johnson@example.com'
+          }
+        }
+      ])
