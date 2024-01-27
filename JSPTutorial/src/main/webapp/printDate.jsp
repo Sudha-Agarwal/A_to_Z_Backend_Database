@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="EmployeeRegister.html">Create new Employee</a>&nbsp;
-<a href="ViewServlet">View All Employees</a>
+<p>Date</p>
 </body>
 </html>

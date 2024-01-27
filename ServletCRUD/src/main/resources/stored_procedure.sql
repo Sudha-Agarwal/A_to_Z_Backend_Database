@@ -1,0 +1,15 @@
+
+DELIMITER //
+
+CREATE PROCEDURE GetAllEmployees()
+BEGIN
+		SELECT * FROM employee;
+END 
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE GetEmployeeById(IN empId INT)
+BEGIN
+	SELECT * FROM employee where id = empId;
+END 
+DELIMITER ;
