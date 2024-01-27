@@ -1,0 +1,22 @@
+db.books.aggregate([
+  {
+    $lookup: {
+      from: "publisher",
+      localField: "publisher_id",
+      foreignField: "_id",
+      as: "publisher_info"
+    }
+  },
+  {
+    $unwind: "$publisher_info"
+  },
+  {
+    $project: {
+      title: 1,
+      author: 1,
+      "publisher_info.name": 1,
+      "publisher_info.founded": 1,
+      "publisher_info.location": 1
+    }
+  }
+])

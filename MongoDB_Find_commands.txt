@@ -1,0 +1,70 @@
+db.students.insertMany([
+  {
+    name: "Alice Smith",
+    age: 22,
+    marks: [75, 88, 82, 90, 87],
+    grade: "B"
+  },
+  {
+    name: "Bob Johnson",
+    age: 21,
+    marks: [92, 95, 88, 78, 85],
+    grade: "A"
+  },
+  {
+    name: "Alice Smith1",
+    age: 25,
+    marks: [75, 88, 82, 90, 87],
+    grade: "A"
+  },
+  {
+    name: "Alice Smith1",
+    age: 19,
+    marks: [75, 88, 82, 90, 87],
+    grade: "A+"
+  }
+  
+]);
+
+
+db.students.aggregate([
+  {
+    $unwind: "$marks"
+  },
+  {
+    $group: {
+      _id: "$_id",
+      averageMarks: { $avg: "$marks" }
+    }
+  },
+  {
+    $sort: {
+      averageMarks: -1
+    }
+  }
+]);
+
+db.students.find({ age: { $gt: 20 } });
+
+db.students.find({
+  grade: "A",
+  "marks": { $elemMatch: { $gt: 85 } }
+});
+db.students.find({ name: "John Doe" });
+db.students.find({ marks: 90 });
+
+
+// Find users with a specific username
+db.users.find({ username: "john_doe" })
+
+// Find users with a valid email address
+db.users.find({ email: { $regex: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/ } })
+
+// Find users with a username and a specific email domain
+db.users.find({
+  $and: [
+    { username: { $exists: true } },
+    { email: { $regex: /example\.com$/ } }
+  ]
+})
+
