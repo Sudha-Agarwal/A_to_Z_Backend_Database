@@ -17,6 +17,22 @@
         <artifactId>maven-war-plugin</artifactId>
         <version>3.2.3</version>
       </plugin>
+      <plugin>
+		  <artifactId>my-custom-plugin</artifactId>
+		  <version>1.0.0</version>
+		  <executions>
+			  <execution>
+				  <id>pre-site-phase</id>
+				  <phase>pre-site</phase>
+				  <goals>
+					  <goal>execute</goal>
+				  </goals>
+			  </execution>
+		  </executions>
+		  <configuration>
+			  <parama1>Value1</parama1>
+		  </configuration>
+	  </plugin>
     </plugins>
   </build>
   

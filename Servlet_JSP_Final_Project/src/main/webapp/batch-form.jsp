@@ -4,7 +4,7 @@
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 	<c:set var="batches" value="<%= BatchUtil.getBatches() %>" />
-	<c:set var="categories" value="<%= BatchUtil.getCategories() %>" /> <!-- Add this line -->
+	<c:set var="categories" value="<%= BatchUtil.getCategories() %>" /> 
 	
 	<!DOCTYPE html>
 	<html>
@@ -51,7 +51,7 @@
 	        <c:forEach var="category" items="${categories}">
 	            <option value="${category.categoryId}"
 	                <c:if test="${category.categoryId eq sessionScope.batch.categoryId}">
-	                    selected="selected"
+	                    selected
 	                </c:if>
 	            >${category.batchName}</option>
 	        </c:forEach>
@@ -74,7 +74,6 @@
 	    
 	    </form>
 	
-	    <c:set var="batches" value="<%= BatchUtil.getBatches() %>" />
-	    <c:set var="categories" value="<%= BatchUtil.getCategories() %>" /> <!-- Add this line -->
+	    
 	</body>
 	</html>
