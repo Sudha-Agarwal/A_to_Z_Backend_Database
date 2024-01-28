@@ -1,0 +1,64 @@
+// Insert a single document
+db.courses.insertOne({
+  name: 'MongoDB for Beginners',
+  coursedetails: {
+    description: 'An introduction to MongoDB for beginners',
+    duration: 10
+  },
+  instructor: {
+    name: 'John Doe',
+    email: 'johndoe@example.com'
+  }
+});
+
+// Insert multiple documents
+db.courses.insertMany([
+  {
+    name: 'Advanced MongoDB',
+    coursedetails: {
+      description: 'An advanced course on MongoDB',
+      duration: 15
+    },
+    instructor: {
+      name: 'Jane Smith',
+      email: 'janesmith@example.com'
+    }
+  },
+  // Add more documents as needed
+]);
+
+
+//Read
+// Find all documents
+db.courses.find();
+
+// Find documents with a specific condition
+db.courses.find({ 'coursedetails.duration': { $gt: 10 } });
+
+// Find a single document by _id
+db.courses.findOne({ _id: ObjectId('your_document_id') });
+
+
+//update
+// Update a single document
+db.courses.updateOne(
+  { name: 'MongoDB for Beginners' },
+  { $set: { 'instructor.name': 'Updated Instructor' } }
+);
+
+// Update multiple documents
+db.courses.updateMany(
+  { 'coursedetails.duration': { $gt: 10 } },
+  { $set: { 'instructor.name': 'Updated Instructor' } }
+);
+
+
+//delete
+// Delete a single document
+db.courses.deleteOne({ name: 'MongoDB for Beginners' });
+
+// Delete multiple documents
+db.courses.deleteMany({ 'coursedetails.duration': { $gt: 10 } });
+
+// Delete all documents in the collection (use with caution)
+db.courses.deleteMany({});

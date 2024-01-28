@@ -1,0 +1,21 @@
+// Create an array of mixed write operations
+const mixedBulkOperations = [
+  { insertOne: { document: { customer: 'John', amount: 100 } } },
+  { updateOne: { filter: { customer: 'Alice' }, update: { $set: { amount: 300 } } } },
+  { deleteOne: { filter: { customer: 'Bob' } } },
+  // Add more operations as needed
+];
+
+// Execute the mixed bulk write operation
+db.collection.bulkWrite(mixedBulkOperations, { ordered: true });
+
+//unordered
+// Create an array of unordered write operations
+const unorderedBulkOperations = [
+  { insertOne: { document: { customer: 'John', amount: 100 } } },
+  { insertOne: { document: { customer: 'Alice', amount: 200 } } },
+  // Add more unordered operations as needed
+];
+
+// Execute the unordered bulk write operation
+db.collection.bulkWrite(unorderedBulkOperations, { ordered: false });

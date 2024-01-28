@@ -1,0 +1,57 @@
+// Define the JSON Schema for the "publishers" collection
+const publishersSchema = {
+  $jsonSchema: {
+    bsonType: "object",
+    required: ["name", "founded", "location"],
+    properties: {
+      name: {
+        bsonType: "string",
+        description: "Name must be a string."
+      },
+      founded: {
+        bsonType: "int",
+        minimum: 0,
+        description: "Founded must be a non-negative integer."
+      },
+      location: {
+        bsonType: "string",
+        description: "Location must be a string."
+      }
+      // Add more properties as needed
+    }
+  }
+};
+
+// Define the JSON Schema for the "books" collection
+const booksSchema = {
+  $jsonSchema: {
+    bsonType: "object",
+    required: ["title", "author", "publisher_id"],
+    properties: {
+      title: {
+        bsonType: "string",
+        description: "Title must be a string."
+      },
+      author: {
+        bsonType: "string",
+        description: "Author must be a string."
+      },
+      publisher_id: {
+        bsonType: "objectId",
+        description: "Publisher ID must be a valid ObjectId."
+      }
+      // Add more properties as needed
+    }
+  }
+};
+
+// Apply the schemas to the collections
+db.runCommand({
+  collMod: "publisher",
+  validator: publishersSchema
+});
+
+db.runCommand({
+  collMod: "books",
+  validator: booksSchema
+});

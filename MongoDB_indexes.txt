@@ -1,0 +1,89 @@
+//indexes
+
+db.courses.insertMany([
+  {
+    name: 'MongoDB for Beginners',
+    coursedetails: {
+      description: 'An introduction to MongoDB for beginners',
+      duration: 10
+    },
+    instructor: {
+      name: 'John Doe',
+      email: 'johndoe@example.com'
+    }
+  },
+  {
+    name: 'MongoDB for Developers',
+    coursedetails: {
+      description: 'A course on MongoDB for developers',
+      duration: 20
+    },
+    instructor: {
+      name: 'Jane Smith',
+      email: 'janesmith@example.com'
+    }
+  },
+  {
+    name: 'MongoDB for Administrators',
+    coursedetails: {
+      description: 'A course on MongoDB for administrators',
+      duration: 15
+    },
+    instructor: {
+      name: 'Bob Johnson',
+      email: 'bobjohnson@example.com'
+    }
+  }
+]);
+
+db.courses.find({ name: /^MongoDB/ ,'coursedetails.duration': { $lt: 15 }}).explain("executionStats")
+db.courses.createIndex({ "coursedetails.duration": 1 });
+
+
+In MongoDB, a multikey index is used to index the values of arrays.
+ db.courses.insertMany([
+        {
+          name: 'MongoDB for Beginners',
+          coursedetails: {
+            duration: 30,
+            topics: ['MongoDB basics', 'Data modeling', 'Indexes']
+          },
+          instructor: {
+            name: 'John Doe',
+            email: 'john.doe@example.com'
+          }
+        },
+        {
+          name: 'Advanced MongoDB',
+          coursedetails: {
+            duration: 60,
+            topics: ['Aggregation framework', 'Replication', 'Sharding']
+          },
+          instructor: {
+            name: 'Jane Smith',
+            email: 'jane.smith@example.com'
+          }
+        },
+        {
+          name: 'MongoDB for Node.js Developers',
+          coursedetails: {
+            duration: 45,
+            topics: ['Node.js', 'MongoDB driver', 'Mongoose']
+          },
+          instructor: {
+            name: 'Bob Johnson',
+            email: 'bob.johnson@example.com'
+          }
+        }
+      ])
+	  //multikey index
+db.courses.createIndex({ 'coursedetails.topics': 1 })
+
+db.courses.createIndex({ name: 1 }, { unique: true });
+
+ const indexSpec = ;
+  const options = { name: 'duration_name_index' };
+  db.courses.createIndex(
+  { 'coursedetails.duration': 1, 'instructor.name': 1 },
+  { name: 'duration_name_index' }
+);

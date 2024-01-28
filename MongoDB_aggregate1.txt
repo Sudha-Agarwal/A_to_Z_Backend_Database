@@ -1,0 +1,66 @@
+db.orders.insertMany([
+  {
+    "_id": 1,
+    "userId": 1,
+    "product": "Product A",
+    "price": 10,
+    "quantity": 2
+  },
+  {
+    "_id": 2,
+    "userId": 2,
+    "product": "Product B",
+    "price": 15,
+    "quantity": 4
+  },
+  {
+    "_id": 3,
+    "userId": 1,
+    "product": "Product C",
+    "price": 20,
+    "quantity": 1
+  }
+]);
+
+
+db.users.insertMany([
+  {
+    "_id": 1,
+    "name": "John",
+    "email": "john@example.com"
+  },
+  {
+    "_id": 2,
+    "name": "Jane",
+    "email": "jane@example.com"
+  }
+]);
+
+db.users.aggregate([
+    {
+      $lookup: {
+        from: "orders",
+        localField: "_id",
+        foreignField: "userId",
+        as: "orders"
+      }
+    },
+    {
+      $unwind: "$orders"
+    },
+    {
+      $group: {
+        _id: "$_id",
+        customer: { $first: "$name" },
+        totalOrderValue: { $sum: { $multiply: ["$orders.price", "$orders.quantity"] } }
+      }
+    },
+    {
+      $project: {
+        _id: 0,
+        userId: "$_id",
+        customer: 1,
+        totalOrderValue: 1
+      }
+    }
+  ])
